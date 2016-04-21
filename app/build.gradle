@@ -3,7 +3,7 @@ apply plugin: 'com.android.model.application'
 model {
     android {
         compileSdkVersion = 22
-        buildToolsVersion = "23.0.0"
+        buildToolsVersion = "23.0.3"
 
         defaultConfig.with {
             applicationId = "com.jnardari.opencv_androidsamples"
@@ -27,7 +27,7 @@ model {
     android.ndk {
         moduleName = "ndklibrarysample"
         cppFlags += ["-std=c++11", "-fexceptions", "-frtti"]
-        cppFlags  += "-I${file("C:/Users/jnardari/Desktop/OpenCV-android-sdk/sdk/native/jni/include")}".toString()
+        cppFlags  += "-I${file("/Users/kazuyukimori/Downloads/OpenCV-android-sdk/sdk/native/jni/include")}".toString()
         ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]
         stl = "gnustl_static"
     }
@@ -39,7 +39,7 @@ model {
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi\\"
+                String libsDir = curDir.absolutePath + "/src/main/jniLibs/armeabi/"
 
                 ldLibs += libsDir + "libopencv_java3.so"
             }
@@ -50,7 +50,7 @@ model {
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\armeabi-v7a\\"
+                String libsDir = curDir.absolutePath + "/src/main/jniLibs/armeabi-v7a/"
 
                 ldLibs += libsDir + "libopencv_java3.so"
             }
@@ -61,7 +61,7 @@ model {
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\x86\\"
+                String libsDir = curDir.absolutePath + "/src/main/jniLibs/x86/"
 
                 ldLibs += libsDir + "libopencv_java3.so"
             }
@@ -72,7 +72,7 @@ model {
 
                 File curDir = file('./')
                 curDir = file(curDir.absolutePath)
-                String libsDir = curDir.absolutePath + "\\src\\main\\jniLibs\\mips\\"
+                String libsDir = curDir.absolutePath + "/src/main/jniLibs/mips/"
 
                 ldLibs += libsDir + "libopencv_java3.so"
             }
@@ -88,3 +88,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile project(':libraries:opencv')
 }
+
